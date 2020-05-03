@@ -9,7 +9,8 @@ const startAgenda = (urlDB) => {
     });
     
       agenda.on('ready', function() {
-        agenda.every('10 seconds', 'expiredTaskJob');
+        // agenda.every('10 seconds', 'expiredTaskJob');
+        agenda.schedule('every day at 00:00', 'expiredTaskJob');
         agenda.start();
       });
 }
