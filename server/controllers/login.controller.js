@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const { loginHandle } = require('../services/user/login.user.service');
+const { validateToken } = require('../middlewares/authentication');
 
 
 
@@ -17,6 +18,12 @@ app.post('/login', [], async (req,res) => {
             message: exc.message
         })
     }
+})
+
+app.get('/validateToken',[validateToken], (req,res) => {
+    return res.json({
+        ok: true
+    });
 })
 
 
