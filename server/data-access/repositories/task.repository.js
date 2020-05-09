@@ -25,8 +25,13 @@ const updateExpiredTasks = async (tasksToUpdate) => {
     });
 }
 
+const getByUser = async ({id}) => {
+    return await Task.find({user: id});
+}
+
 module.exports = {
     create,
     getNotExpired,
-    updateExpiredTasks
+    updateExpiredTasks,
+    getByUser
 }
